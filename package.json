@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jethroglaudin/BankingApp/issues"
   },
-  "homepage": "https://github.com/jethroglaudin/BankingApp#readme"
+  "homepage": "https://github.com/jethroglaudin/BankingApp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
