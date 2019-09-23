@@ -1,9 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser');
-const chalk = require('chalk');
+const bodyParser = require("body-parser");
+const chalk = require("chalk");
 const app = express();
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -11,13 +10,14 @@ app.use(bodyParser.json());
 const DB = require("./config/keys").mongoURI;
 
 mongoose.Promise = global.Promise;
-mongoose.connect(DB, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => {
-  console.log(chalk.inverse.green(`MongoDB Connected`))
-})
+mongoose
+  .connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() =>  console.log(chalk.inverse.green(`MongoDB Connected`)))
+  .catch(err => console.log(err))
 
 const Port = process.env.PORT || 4000;
 
-app.listen(Port, (err) => {
-    if (err) throw err
+app.listen(Port, err => {
+  if (err) throw err;
   console.log(chalk.blue.inverse(`Currently running on Port: ${Port}`));
 });
