@@ -4,6 +4,9 @@ const bodyParser = require("body-parser");
 const chalk = require("chalk");
 const app = express();
 
+
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -14,6 +17,10 @@ mongoose
   .connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() =>  console.log(chalk.inverse.green(`MongoDB Connected`)))
   .catch(err => console.log(err))
+
+  // Routes
+const users = require("./routes/user");
+app.use('/api/users', users)
 
 const Port = process.env.PORT || 4000;
 
