@@ -5,11 +5,11 @@ const router = express.Router();
 const User = require("../models/User");
 
 // @route GET
-// @desc Test Route 
+// @desc Test Route
 // Access:
 
-router.get('/test', (req, res) => {
-    res.json({msg: "Route is working"});
-})
+router.get("/test", (req, res) => {
+  res.json({ msg: "Route is working" });
+});
 
 module.exports = router;
