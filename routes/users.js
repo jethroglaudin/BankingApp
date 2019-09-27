@@ -18,5 +18,11 @@ router.get("/test", (req, res) => {
 
 router.post("/register", (req, res) => {
     
+  // Find User to check if it's already in Database
+  User.find({ email: req.body.email }).then(user => {
+    if(user){
+      return res.status(400).json({"message": "User already exists" })
+    }
+  })
 })
 module.exports = router;
