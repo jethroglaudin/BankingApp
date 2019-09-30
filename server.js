@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const chalk = require("chalk");
+const cors = require("cors");
 const app = express();
 
 
@@ -9,6 +10,10 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Initiate cors for Cross Origin Resource Sharing
+app.use(cors())
+
 
 const DB = require("./config/keys").mongoURI;
 
