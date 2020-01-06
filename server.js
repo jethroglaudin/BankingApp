@@ -27,8 +27,8 @@ mongoose
   .catch(err => console.log(err))
 
   // Routes
-const users = require("./routes/users");
-app.use('/api/users', users)
+const auth = require("./routes/auth");
+app.use('/api/users', auth)
 
 const Port = process.env.PORT || 4000;
 
